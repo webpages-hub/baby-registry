@@ -345,7 +345,7 @@ h1 { font-size: clamp(2.4rem, 8vw, 4rem); font-weight: 800; color: var(--mocha);
 @keyframes spin { to { transform: rotate(360deg); } }
 
 .media {
-  position: relative; height: 158px; margin: -18px -18px 4px; overflow: hidden;
+  position: relative; height: 190px; margin: -18px -18px 4px; overflow: hidden;
   border-radius: calc(var(--radius) - 2px) calc(var(--radius) - 2px) 0 0;
   background:
     radial-gradient(circle at 18% 22%, rgba(255, 255, 255, .55) 0 18px, transparent 19px),
@@ -355,7 +355,7 @@ h1 { font-size: clamp(2.4rem, 8vw, 4rem); font-weight: 800; color: var(--mocha);
 }
 .media > svg:not(.spark), .media img { width: 100%; height: 100%; display: block; }
 .media > svg:not(.spark) { padding: 12px 0 8px; transition: transform .35s cubic-bezier(.2, .8, .2, 1); }
-.media img { object-fit: cover; }
+.media img { object-fit: cover; object-position: 50% 55%; }
 .card:hover .media > svg:not(.spark) { transform: scale(1.06) rotate(-1.5deg); }
 .card .media + .card-top { margin-top: 2px; }
 .card.done .media { opacity: .55; filter: grayscale(.5); }
@@ -422,3 +422,4 @@ h1 { font-size: clamp(2.4rem, 8vw, 4rem); font-weight: 800; color: var(--mocha);
 .btn { font-weight: 600; }
 .progress-row strong { font-weight: 700; }
 .list-head p, .blurb { font-weight: 600; }
+.credit { margin-bottom: 6px; } .credit a { color: var(--cocoa); font-weight: 700; }

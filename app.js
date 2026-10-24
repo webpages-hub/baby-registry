@@ -114,7 +114,7 @@
 
   /* ---------- rendering ---------- */
   function mediaHTML(item) {
-    if (item.image) return '<img src="' + esc(item.image) + '" alt="' + esc(item.name) + '" loading="lazy" data-art="' + esc(item.id) + '">' + SPARKS;
+    if (item.image) return '<img src="' + esc(item.image) + '" alt="' + esc(item.name) + '" loading="lazy" data-art="' + esc(item.id) + '">';
     return (window.REGISTRY_ART ? window.REGISTRY_ART(item.id) : "") + SPARKS;
   }
   var SPARKS = '<svg class="spark sp1" viewBox="0 0 64 64" aria-hidden="true"><use href="#i-sparkle"/></svg><svg class="spark sp2" viewBox="0 0 64 64" aria-hidden="true"><use href="#i-sparkle"/></svg>';
