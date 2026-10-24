@@ -6,9 +6,10 @@
   <meta name="theme-color" content="#2b6f6a">
   <title>Baby Registry</title>
   <meta name="description" content="Our baby registry. Reserve a gift so nothing gets doubled up.">
+  <link rel="preload" as="image" href="images/hero.webp" type="image/webp" fetchpriority="high">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Nunito:wght@400;600;700;800&family=Patrick+Hand&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&family=Nunito:wght@400;600;700&family=Patrick+Hand&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -129,7 +130,6 @@
 <header class="topbar">
   <a class="brand" href="#top" aria-label="Registry home">
     <svg class="ic" viewBox="0 0 64 70"><use href="#i-teddy"/></svg>
-    <span id="brandName">Little One's registry</span>
   </a>
   <a class="topbar-link" href="#list">Gift list</a>
 </header>
@@ -137,9 +137,8 @@
 <main id="top">
   <section class="hero">
     <div class="hero-text">
-      <p class="eyebrow"><svg class="ic" viewBox="0 0 64 60"><use href="#i-heart"/></svg> Baby registry</p>
+      <img class="hero-img" src="images/hero.webp" width="499" height="593" alt="A baby arriving card with knitted booties and a wooden rattle" fetchpriority="high" decoding="async">
       <h1><span id="heroName">Little One</span> is on the way</h1>
-      <p class="lead" id="heroParents">The Parents-to-Be</p>
       <p class="blurb">We are so grateful for the love and support already surrounding our growing family. This list gathers the things we will reach for most in those first sleepy months. Thank you for being part of the welcome.</p>
       <a class="btn btn-primary" href="#list">Browse the registry</a>
 
@@ -150,10 +149,6 @@
       </div>
     </div>
 
-    <svg class="deco h1 an-wig" viewBox="0 0 64 64" style="--c1:#3f9a93;--c3:#9fd0ca" aria-hidden="true"><use href="#i-pacifier"/></svg>
-    <svg class="deco h2 an-float" viewBox="0 0 64 64" style="animation-delay:-1.2s" aria-hidden="true"><use href="#i-onesie"/></svg>
-    <svg class="deco h5 an-beat" viewBox="0 0 64 60" style="--c1:#c4764f" aria-hidden="true"><use href="#i-heart"/></svg>
-    <svg class="deco h6 an-twinkle" viewBox="0 0 64 64" style="--c3:#5fb0a8" aria-hidden="true"><use href="#i-star"/></svg>
   </section>
 
   <section class="list" id="list">
@@ -242,9 +237,9 @@
 
 <noscript><p style="padding:2rem;text-align:center">Please turn on JavaScript to see the registry.</p></noscript>
 
-<script src="config.js"></script>
-<script src="items.js"></script>
-<script src="illustrations.js"></script>
-<script src="app.js"></script>
+<script defer src="config.js"></script>
+<script defer src="items.js"></script>
+<script defer src="illustrations.js"></script>
+<script defer src="app.js"></script>
 </body>
 </html>

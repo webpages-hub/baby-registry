@@ -110,7 +110,7 @@ main, header, footer, section { position: relative; z-index: 1; }
 :focus-visible { outline: 3px solid #e0a15f; outline-offset: 2px; }
 
 /* ---------- Hero ---------- */
-.hero { position: relative; max-width: 780px; margin: 0 auto; padding: 56px 20px 18px; text-align: center; }
+.hero { position: relative; max-width: 780px; margin: 0 auto; padding: 24px 20px 18px; text-align: center; }
 .hero-text { display: flex; flex-direction: column; align-items: center; }
 .hero .blurb { margin-left: auto; margin-right: auto; }
 .progress { width: 100%; text-align: left; }
@@ -310,12 +310,7 @@ h1 { font-size: clamp(2.4rem, 8vw, 4rem); font-weight: 800; color: var(--mocha);
 
 /* ---------- Mobile ---------- */
 @media (max-width: 820px) {
-  .hero { padding-top: 84px; }
-  .hero .h3, .hero .h4, .hero .h7, .hero .h8, .hero .h9 { display: none; }
-  .hero .h1 { left: 6%; top: 14px; width: 40px; }
-  .hero .h2 { right: 6%; top: 10px; width: 46px; }
-  .hero .h5 { left: 28%; top: 22px; }
-  .hero .h6 { right: 28%; top: 20px; }
+  .hero { padding-top: 16px; }
 }
 @media (max-width: 560px) {
   .grid { grid-template-columns: 1fr; gap: 14px; }
@@ -474,3 +469,7 @@ h1 #heroName { color: var(--teal-dark); }
 @media (max-width: 820px) {
   .hero .h5, .hero .h6 { display: none; }
 }
+
+/* ---------- Hero picture ---------- */
+.hero-img { display: block; width: min(340px, 74vw); height: auto; margin: 0 auto 6px; filter: drop-shadow(0 18px 18px rgba(63, 42, 30, .18)); animation: bob 6s ease-in-out infinite; }
+.brand .ic { width: 34px; height: 36px; }

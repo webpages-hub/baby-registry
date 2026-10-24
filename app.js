@@ -43,9 +43,7 @@
   var babyName = CFG.babyName || "Little One";
   var parents = CFG.parents || "";
   document.title = babyName + "'s Baby Registry";
-  $("brandName").textContent = babyName + "'s registry";
   $("heroName").textContent = babyName;
-  $("heroParents").textContent = parents;
   $("signName").textContent = parents;
   if (!formReady) $("previewNote").hidden = false;
 
@@ -109,7 +107,11 @@
 
   /* ---------- rendering ---------- */
   function mediaHTML(item) {
-    if (item.image) return '<img src="' + esc(item.image) + '" alt="' + esc(item.name) + '" loading="lazy" data-art="' + esc(item.id) + '">';
+    if (item.image) {
+      var small = /\.webp$/.test(item.image) ? item.image.replace(/\.webp$/, "-400.webp") : "";
+      return '<img src="' + esc(item.image) + '"' + (small ? ' srcset="' + esc(small) + ' 400w, ' + esc(item.image) + ' 800w" sizes="(max-width: 560px) 92vw, 340px"' : "") +
+        ' width="800" height="600" alt="' + esc(item.name) + '" loading="lazy" decoding="async" data-art="' + esc(item.id) + '">';
+    }
     return (window.REGISTRY_ART ? window.REGISTRY_ART(item.id) : "");
   }
 
