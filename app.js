@@ -43,7 +43,6 @@
   var babyName = CFG.babyName || "Little One";
   var parents = CFG.parents || "";
   document.title = babyName + "'s Baby Registry";
-  $("heroName").textContent = babyName;
   $("signName").textContent = parents;
   if (!formReady) $("previewNote").hidden = false;
 
