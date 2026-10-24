@@ -497,3 +497,27 @@ h1 #heroName { color: var(--teal-dark); }
 
 .hero { padding-top: 32px; }
 @media (min-width: 821px) { .hero { padding-top: 48px; } }
+
+/* ---------- Wish list intro + progress ---------- */
+.list-head { max-width: 900px; }
+.steps { list-style: none; margin: 18px 0 0; padding: 0; display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; text-align: left; }
+.steps li { display: flex; gap: 12px; align-items: flex-start; padding: 14px; background: var(--paper); border: 2px solid var(--sand); border-radius: 18px; }
+.step-ic { flex: none; width: 46px; height: 46px; border-radius: 15px; display: grid; place-items: center; background: var(--teal-mist); border: 2px solid #cfe7e2; }
+.step-ic svg { width: 28px; height: 28px; }
+.steps b { display: block; font-family: var(--head); font-weight: 700; font-size: 1.05rem; color: var(--teal-dark); line-height: 1.2; margin-bottom: 2px; }
+.steps span:not(.step-ic) { font-size: .92rem; color: var(--muted); line-height: 1.4; display: block; }
+
+.list .progress, .progress { max-width: 600px; margin: 22px auto 6px; padding: 16px 20px 14px; background: #fff; border: 2px solid #cfe7e2; border-radius: 22px; box-shadow: 0 10px 24px -18px rgba(31, 85, 81, .5); text-align: left; }
+.progress-head { display: flex; align-items: center; gap: 12px; }
+.p-ic { flex: none; width: 46px; height: 46px; border-radius: 15px; display: grid; place-items: center; background: var(--teal-mist); border: 2px solid #cfe7e2; }
+.p-ic svg { width: 28px; height: 28px; }
+.p-title { flex: 1; display: flex; align-items: baseline; justify-content: space-between; gap: 10px; font-weight: 700; color: var(--teal-deep); }
+.p-title strong { font-family: var(--head); font-size: 1.5rem; line-height: 1; color: var(--teal-dark); }
+.progress .bar { height: 16px; margin: 16px 0 10px; }
+.progress .bar-teddy { top: -12px; }
+.progress-note { font-size: 1.1rem; color: var(--muted); }
+
+@media (max-width: 720px) {
+  .steps { grid-template-columns: 1fr; gap: 10px; }
+  .p-title strong { font-size: 1.35rem; }
+}

@@ -122,6 +122,26 @@
     <symbol id="i-sparkle" viewBox="0 0 64 64">
       <path class="f3" d="M32 4c2 18 10 26 28 28-18 2-26 10-28 28-2-18-10-26-28-28 18-2 26-10 28-28z"/>
     </symbol>
+
+    <symbol id="i-gift" viewBox="0 0 64 64">
+      <rect class="f1" x="10" y="28" width="44" height="28" rx="4"/>
+      <rect class="f3" x="6" y="20" width="52" height="12" rx="4"/>
+      <rect class="f2" x="29" y="20" width="6" height="36"/>
+      <ellipse class="f2" cx="23" cy="15" rx="9" ry="5.5" transform="rotate(-20 23 15)"/>
+      <ellipse class="f2" cx="41" cy="15" rx="9" ry="5.5" transform="rotate(20 41 15)"/>
+      <circle class="f3" cx="32" cy="17" r="3.5"/>
+    </symbol>
+    <symbol id="i-bag" viewBox="0 0 64 64">
+      <path class="sk4" d="M23 26v-6a9 9 0 0 1 18 0v6"/>
+      <path class="f3" d="M10 24h44l-4 33H14z"/>
+      <path class="f1" d="M10 24h44l-.8 7H10.8z"/>
+      <circle class="f2" cx="32" cy="42" r="5"/>
+    </symbol>
+    <symbol id="i-tag" viewBox="0 0 64 64">
+      <path class="f1" d="M6 32L32 6h26v26L32 58z" style="stroke-linejoin:round"/>
+      <circle class="f2" cx="46" cy="18" r="4.5"/>
+      <path class="sk" d="M24 38l8-8M30 44l8-8" style="stroke:#fff1dc"/>
+    </symbol>
   </defs>
 </svg>
 
@@ -132,23 +152,31 @@
     <img class="hero-img" src="images/hero-balloon-cutout.webp" width="241" height="700" alt="A soft fabric balloon on the wall with a plush bunny hanging from its string" fetchpriority="high" decoding="async">
     <div class="hero-text">
       <h1><span class="t1">A Tiny Heartbeat.</span> <span class="t2">A Growing Family.</span> <span class="t3">A Whole Lot of Love.</span></h1>
-      <p class="blurb">We have a little baby on the way, and we can’t wait to celebrate with you.</p>
+      <p class="blurb">A little one is on the way, and we’re so grateful for your love.</p>
       <a class="btn btn-primary" href="#list">Browse the registry</a>
 
-      <div class="progress" role="group" aria-label="Registry progress">
-        <div class="progress-row"><span>Gifts reserved</span><strong id="progressCount">0 of 0</strong></div>
-        <div class="bar"><span id="barFill"></span><svg class="bar-teddy" id="barTeddy" viewBox="0 0 64 70"><use href="#i-teddy"/></svg></div>
-        <p class="progress-note" id="progressNote">0% of the list is taken care of.</p>
-      </div>
     </div>
 
   </section>
 
   <section class="list" id="list">
     <div class="list-head">
-      <h2>The wish list</h2>
-      <p>Pick something that speaks to you and reserve it so nothing gets doubled up. Buy it wherever you like. The Instagram shops are just suggestions, and prices are estimates that may differ from the shop.</p>
+    <h2>The wish list</h2>
+    <ul class="steps">
+      <li><span class="step-ic"><svg viewBox="0 0 64 64" aria-hidden="true"><use href="#i-gift"/></svg></span><div><b>Pick &amp; reserve</b><span>Choose something that speaks to you and reserve it so nothing gets doubled up.</span></div></li>
+      <li><span class="step-ic"><svg viewBox="0 0 64 64" aria-hidden="true"><use href="#i-bag"/></svg></span><div><b>Buy it anywhere</b><span>The Instagram shops are just suggestions. Get it wherever you like.</span></div></li>
+      <li><span class="step-ic"><svg viewBox="0 0 64 64" aria-hidden="true"><use href="#i-tag"/></svg></span><div><b>Prices are estimates</b><span>They may differ from the shop.</span></div></li>
+    </ul>
+  </div>
+
+  <div class="progress" role="group" aria-label="Registry progress">
+    <div class="progress-head">
+      <span class="p-ic"><svg viewBox="0 0 64 64" aria-hidden="true"><use href="#i-gift"/></svg></span>
+      <div class="p-title"><span>Gifts reserved</span><strong id="progressCount">0 of 0</strong></div>
     </div>
+    <div class="bar"><span id="barFill"></span><svg class="bar-teddy" id="barTeddy" viewBox="0 0 64 70" aria-hidden="true"><use href="#i-teddy"/></svg></div>
+    <p class="progress-note" id="progressNote">0% of the list is taken care of.</p>
+  </div>
 
     <div class="filters" id="filters">
       <div class="chips" id="chips" role="tablist" aria-label="Filter by category"></div>
