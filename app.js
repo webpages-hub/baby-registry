@@ -53,15 +53,10 @@
   (function floaters() {
     var box = $("floaters");
     var kinds = [
-      ["i-balloon", "0 0 48 84", 26, 46, "#a8744a"], ["i-teddy", "0 0 64 70", 38, 42, "#a8744a"],
-      ["i-diaper", "0 0 64 56", 36, 32, "#c8955f"], ["i-star", "0 0 64 64", 24, 24, "#d2a77c"],
-      ["i-bottle", "0 0 40 72", 22, 40, "#b07a4b"], ["i-rattle", "0 0 64 64", 32, 32, "#8a5a3b"],
-      ["i-balloon", "0 0 48 84", 24, 42, "#6f4a33"], ["i-heart", "0 0 64 60", 22, 20, "#b07a4b"],
-      ["i-pacifier", "0 0 64 64", 30, 30, "#b07a4b"], ["i-bootie", "0 0 40 46", 26, 30, "#a8744a"],
-      ["i-onesie", "0 0 64 64", 34, 34, "#c8955f"], ["i-bottle2", "0 0 48 70", 24, 34, "#8a5a3b"],
-      ["i-sparkle", "0 0 64 64", 18, 18, "#d2a77c"]
+      ["i-teddy", "0 0 64 70", 40, 44, "#a8744a"], ["i-balloon", "0 0 48 84", 26, 46, "#3f9a93"],
+      ["i-heart", "0 0 64 60", 24, 22, "#c4764f"], ["i-star", "0 0 64 64", 24, 24, "#5fb0a8"], ["i-balloon", "0 0 48 84", 24, 42, "#a8744a"]
     ];
-    var count = window.innerWidth < 600 ? 10 : 18;
+    var count = window.innerWidth < 600 ? 3 : 5;
     for (var i = 0; i < count; i++) {
       var k = kinds[i % kinds.length];
       var el = document.createElement("div");
@@ -115,9 +110,8 @@
   /* ---------- rendering ---------- */
   function mediaHTML(item) {
     if (item.image) return '<img src="' + esc(item.image) + '" alt="' + esc(item.name) + '" loading="lazy" data-art="' + esc(item.id) + '">';
-    return (window.REGISTRY_ART ? window.REGISTRY_ART(item.id) : "") + SPARKS;
+    return (window.REGISTRY_ART ? window.REGISTRY_ART(item.id) : "");
   }
-  var SPARKS = '<svg class="spark sp1" viewBox="0 0 64 64" aria-hidden="true"><use href="#i-sparkle"/></svg><svg class="spark sp2" viewBox="0 0 64 64" aria-hidden="true"><use href="#i-sparkle"/></svg>';
 
   function cardHTML(item, idx) {
     var left = remaining(item), done = left <= 0;
@@ -315,8 +309,8 @@
     if (window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches) return;
     var box = $("confetti");
     var kinds = [["i-heart", "0 0 64 60"], ["i-star", "0 0 64 64"], ["i-balloon", "0 0 48 84"], ["i-pacifier", "0 0 64 64"], ["i-sparkle", "0 0 64 64"], ["i-bootie", "0 0 40 46"], ["i-heart", "0 0 64 60"], ["i-onesie", "0 0 64 64"]];
-    var colors = ["#a8744a", "#d2a77c", "#6f4a33", "#c4764f", "#b07a4b", "#8a5a3b"];
-    for (var i = 0; i < 34; i++) {
+    var colors = ["#a8744a", "#d2a77c", "#3f9a93", "#c4764f", "#5fb0a8", "#8a5a3b"];
+    for (var i = 0; i < 18; i++) {
       var k = kinds[i % kinds.length], el = document.createElement("i");
       var ang = Math.random() * Math.PI * 2, dist = 120 + Math.random() * Math.min(window.innerWidth, 520) * 0.7;
       el.style.cssText = "--dx:" + (Math.cos(ang) * dist).toFixed(0) + "px;--dy:" + (Math.sin(ang) * dist - 140).toFixed(0) + "px;--rot:" + ((Math.random() - 0.5) * 540).toFixed(0) +
