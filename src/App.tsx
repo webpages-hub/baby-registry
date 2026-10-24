@@ -137,22 +137,25 @@ export function App() {
           </a>{" "}
           and Wikimedia Commons.
         </p>
-        <p className="mx-auto mt-1 max-w-2xl text-xs leading-relaxed">
-          {CREDITS.map((c, i) => (
-            <span key={c.item}>
-              {i > 0 && " · "}
-              {c.item}:{" "}
-              <a href={c.url} target="_blank" rel="noopener noreferrer" className="underline underline-offset-2">
-                {c.author}
-              </a>{" "}
-              (
-              <a href={c.licenseUrl} target="_blank" rel="noopener noreferrer" className="underline underline-offset-2">
-                {c.license}
-              </a>
-              )
-            </span>
-          ))}
-        </p>
+        <details className="mx-auto mt-1 max-w-2xl text-xs leading-relaxed">
+          <summary className="cursor-pointer select-none underline underline-offset-2">Photo credits</summary>
+          <p className="mt-1">
+            {CREDITS.map((c, i) => (
+              <span key={c.item}>
+                {i > 0 && " · "}
+                {c.item}:{" "}
+                <a href={c.url} target="_blank" rel="noopener noreferrer" className="underline underline-offset-2">
+                  {c.author}
+                </a>{" "}
+                (
+                <a href={c.licenseUrl} target="_blank" rel="noopener noreferrer" className="underline underline-offset-2">
+                  {c.license}
+                </a>
+                )
+              </span>
+            ))}
+          </p>
+        </details>
         {!formConnected && (
           <p className="mt-1">Preview mode: the Google Form is not connected yet, so reservations are only saved on this device.</p>
         )}
