@@ -97,6 +97,30 @@
       <path class="f1" d="M26 7c2 6 5 8 6 8s4-2 6-8" style="opacity:.6"/>
       <path class="f1" d="M32 46l-5-5a3 3 0 0 1 5-3.500 3 3 0 0 1 5 3.500z"/>
     </symbol>
+
+    <symbol id="i-pacifier" viewBox="0 0 64 64">
+      <circle class="ring2" cx="32" cy="46" r="11"/>
+      <path class="f3" d="M24 21c0-13 16-13 16 0z"/>
+      <ellipse class="f1" cx="32" cy="28" rx="22" ry="11"/>
+      <ellipse class="f2" cx="32" cy="28" rx="11" ry="5.5"/>
+      <circle class="f1" cx="32" cy="28" r="2.5"/>
+    </symbol>
+    <symbol id="i-bootie" viewBox="0 0 40 46">
+      <rect class="f3" x="3" y="2" width="22" height="10" rx="3"/>
+      <path class="f1" d="M3 11h22v14c10 2 14 6 14 14v3H3z"/>
+      <rect class="f2" x="3" y="40" width="36" height="5" rx="2.5"/>
+      <path class="sk" d="M8 18h12M8 24h12M8 30h14"/>
+    </symbol>
+    <symbol id="i-bottle2" viewBox="0 0 48 70">
+      <path class="f1" d="M18 18c0-9 12-9 12 0z"/>
+      <rect class="f3" x="10" y="17" width="28" height="9" rx="3"/>
+      <rect class="f2 s1" x="8" y="26" width="32" height="38" rx="9"/>
+      <rect class="f1" x="8" y="36" width="32" height="6"/>
+      <circle class="f1" cx="24" cy="50" r="2.3"/><circle class="f1" cx="24" cy="57" r="2.3"/>
+    </symbol>
+    <symbol id="i-sparkle" viewBox="0 0 64 64">
+      <path class="f3" d="M32 4c2 18 10 26 28 28-18 2-26 10-28 28-2-18-10-26-28-28 18-2 26-10 28-28z"/>
+    </symbol>
   </defs>
 </svg>
 
@@ -126,23 +150,22 @@
       </div>
     </div>
 
-    <div class="hero-art" aria-hidden="true">
-      <div class="balloon b1"><svg viewBox="0 0 48 84" style="--c1:#a8744a"><use href="#i-balloon"/></svg></div>
-      <div class="balloon b2"><svg viewBox="0 0 48 84" style="--c1:#d2a77c"><use href="#i-balloon"/></svg></div>
-      <div class="balloon b3"><svg viewBox="0 0 48 84" style="--c1:#6f4a33"><use href="#i-balloon"/></svg></div>
-      <svg class="star s-a" viewBox="0 0 64 64"><use href="#i-star"/></svg>
-      <svg class="star s-b" viewBox="0 0 64 64"><use href="#i-star"/></svg>
-      <svg class="star s-c" viewBox="0 0 64 64"><use href="#i-star"/></svg>
-      <div class="hero-teddy"><svg viewBox="0 0 64 70"><use href="#i-teddy"/></svg></div>
-      <div class="hero-diaper"><svg viewBox="0 0 64 56"><use href="#i-diaper"/></svg></div>
-      <div class="hero-bottle"><svg viewBox="0 0 40 72"><use href="#i-bottle"/></svg></div>
-      <div class="hero-rattle"><svg viewBox="0 0 64 64"><use href="#i-rattle"/></svg></div>
-    </div>
+    <svg class="deco h1 an-wig" viewBox="0 0 64 64" style="" aria-hidden="true"><use href="#i-pacifier"/></svg>
+    <svg class="deco h2 an-float" viewBox="0 0 64 64" style="animation-delay:-1.2s" aria-hidden="true"><use href="#i-onesie"/></svg>
+    <svg class="deco h3 an-wig" viewBox="0 0 40 46" style="animation-delay:-.6s" aria-hidden="true"><use href="#i-bootie"/></svg>
+    <svg class="deco h4 an-float" viewBox="0 0 48 70" style="animation-delay:-2s" aria-hidden="true"><use href="#i-bottle2"/></svg>
+    <svg class="deco h5 an-beat" viewBox="0 0 64 60" style="--c1:#c4764f" aria-hidden="true"><use href="#i-heart"/></svg>
+    <svg class="deco h6 an-twinkle" viewBox="0 0 64 64" style="" aria-hidden="true"><use href="#i-star"/></svg>
+    <svg class="deco h7 an-twinkle" viewBox="0 0 64 64" style="animation-delay:-1s" aria-hidden="true"><use href="#i-sparkle"/></svg>
+    <svg class="deco h8 an-beat" viewBox="0 0 64 60" style="--c1:#a8744a;animation-delay:-.7s" aria-hidden="true"><use href="#i-heart"/></svg>
+    <svg class="deco h9 an-wig" viewBox="0 0 64 64" style="animation-delay:-1.5s" aria-hidden="true"><use href="#i-rattle"/></svg>
   </section>
+
+  <div class="dots" aria-hidden="true"><svg viewBox="0 0 64 60" style="animation-delay:-0.00s"><use href="#i-heart"/></svg><svg viewBox="0 0 64 64" style="animation-delay:-0.35s"><use href="#i-star"/></svg><svg viewBox="0 0 64 64" style="animation-delay:-0.70s"><use href="#i-sparkle"/></svg><svg viewBox="0 0 40 46" style="animation-delay:-1.05s"><use href="#i-bootie"/></svg><svg viewBox="0 0 64 64" style="animation-delay:-1.40s"><use href="#i-sparkle"/></svg><svg viewBox="0 0 64 64" style="animation-delay:-1.75s"><use href="#i-star"/></svg><svg viewBox="0 0 64 60" style="animation-delay:-2.10s"><use href="#i-heart"/></svg></div>
 
   <section class="list" id="list">
     <div class="list-head">
-      <h2>The wish list</h2>
+      <h2 class="flank"><svg class="fl-ic an-wig" viewBox="0 0 48 70" aria-hidden="true"><use href="#i-bottle2"/></svg><span>The wish list</span><svg class="fl-ic an-wig d2" viewBox="0 0 64 64" aria-hidden="true"><use href="#i-onesie"/></svg></h2>
       <p>Pick something that speaks to you and reserve it so nothing gets doubled up. Buy it wherever you like. The Instagram shops are just suggestions, and prices are estimates that may differ from the shop.</p>
     </div>
 
@@ -170,6 +193,7 @@
   </section>
 
   <section class="note">
+    <svg class="deco n1 an-wig" viewBox="0 0 64 64" style="" aria-hidden="true"><use href="#i-pacifier"/></svg><svg class="deco n2 an-float" viewBox="0 0 40 46" style="" aria-hidden="true"><use href="#i-bootie"/></svg>
     <svg class="ic" viewBox="0 0 64 60"><use href="#i-heart"/></svg>
     <h3>Sending a gift</h3>
     <p>Gifts can be brought along to the shower. Reach out if you have any questions.</p>
@@ -177,7 +201,9 @@
   </section>
 </main>
 
-<footer class="foot"><span id="previewNote" hidden>Preview mode: the Google Form is not connected yet, so reservations are only saved on this device.</span></footer>
+<footer class="foot">
+  <div class="foot-icons" aria-hidden="true"><svg viewBox="0 0 64 64" style="animation-delay:-0.0s"><use href="#i-pacifier"/></svg><svg viewBox="0 0 64 60" style="animation-delay:-0.5s"><use href="#i-heart"/></svg><svg viewBox="0 0 40 46" style="animation-delay:-1.0s"><use href="#i-bootie"/></svg><svg viewBox="0 0 48 70" style="animation-delay:-1.5s"><use href="#i-bottle2"/></svg><svg viewBox="0 0 64 60" style="animation-delay:-2.0s"><use href="#i-heart"/></svg><svg viewBox="0 0 64 64" style="animation-delay:-2.5s"><use href="#i-onesie"/></svg></div>
+  <span id="previewNote" hidden>Preview mode: the Google Form is not connected yet, so reservations are only saved on this device.</span></footer>
 
 <!-- Reserve dialog -->
 <div class="overlay" id="overlay" hidden>
@@ -210,6 +236,7 @@
     </form>
 
     <div class="thanks" id="thanks" hidden>
+      <svg class="deco t1 an-beat" viewBox="0 0 64 60" style="--c1:#c4764f" aria-hidden="true"><use href="#i-heart"/></svg><svg class="deco t2 an-twinkle" viewBox="0 0 64 64" style="" aria-hidden="true"><use href="#i-sparkle"/></svg><svg class="deco t3 an-twinkle" viewBox="0 0 64 64" style="animation-delay:-1s" aria-hidden="true"><use href="#i-star"/></svg><svg class="deco t4 an-wig" viewBox="0 0 64 64" style="" aria-hidden="true"><use href="#i-pacifier"/></svg>
       <div class="thanks-teddy"><svg viewBox="0 0 64 70"><use href="#i-teddy"/></svg></div>
       <h3 id="thanksTitle">Thank you for the love!</h3>
       <p id="thanksBody"></p>

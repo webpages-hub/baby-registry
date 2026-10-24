@@ -56,9 +56,12 @@
       ["i-balloon", "0 0 48 84", 26, 46, "#a8744a"], ["i-teddy", "0 0 64 70", 38, 42, "#a8744a"],
       ["i-diaper", "0 0 64 56", 36, 32, "#c8955f"], ["i-star", "0 0 64 64", 24, 24, "#d2a77c"],
       ["i-bottle", "0 0 40 72", 22, 40, "#b07a4b"], ["i-rattle", "0 0 64 64", 32, 32, "#8a5a3b"],
-      ["i-balloon", "0 0 48 84", 24, 42, "#6f4a33"], ["i-heart", "0 0 64 60", 22, 20, "#b07a4b"]
+      ["i-balloon", "0 0 48 84", 24, 42, "#6f4a33"], ["i-heart", "0 0 64 60", 22, 20, "#b07a4b"],
+      ["i-pacifier", "0 0 64 64", 30, 30, "#b07a4b"], ["i-bootie", "0 0 40 46", 26, 30, "#a8744a"],
+      ["i-onesie", "0 0 64 64", 34, 34, "#c8955f"], ["i-bottle2", "0 0 48 70", 24, 34, "#8a5a3b"],
+      ["i-sparkle", "0 0 64 64", 18, 18, "#d2a77c"]
     ];
-    var count = window.innerWidth < 600 ? 8 : 14;
+    var count = window.innerWidth < 600 ? 10 : 18;
     for (var i = 0; i < count; i++) {
       var k = kinds[i % kinds.length];
       var el = document.createElement("div");
@@ -111,9 +114,10 @@
 
   /* ---------- rendering ---------- */
   function mediaHTML(item) {
-    if (item.image) return '<img src="' + esc(item.image) + '" alt="' + esc(item.name) + '" loading="lazy" data-art="' + esc(item.id) + '">';
-    return window.REGISTRY_ART ? window.REGISTRY_ART(item.id) : "";
+    if (item.image) return '<img src="' + esc(item.image) + '" alt="' + esc(item.name) + '" loading="lazy" data-art="' + esc(item.id) + '">' + SPARKS;
+    return (window.REGISTRY_ART ? window.REGISTRY_ART(item.id) : "") + SPARKS;
   }
+  var SPARKS = '<svg class="spark sp1" viewBox="0 0 64 64" aria-hidden="true"><use href="#i-sparkle"/></svg><svg class="spark sp2" viewBox="0 0 64 64" aria-hidden="true"><use href="#i-sparkle"/></svg>';
 
   function cardHTML(item, idx) {
     var left = remaining(item), done = left <= 0;
@@ -123,8 +127,8 @@
     if (done) avail = "Reserved";
     else if (item.qty > 1) {
       var pips = "";
-      for (var p = 0; p < item.qty; p++) pips += '<span class="pip' + (p >= left ? " gone" : "") + '"></span>';
-      avail = '<span class="pips" aria-hidden="true">' + pips + "</span>" + left + " of " + item.qty + " still needed";
+      for (var p = 0; item.qty <= 6 && p < item.qty; p++) pips += '<span class="pip' + (p >= left ? " gone" : "") + '"></span>';
+      avail = (pips ? '<span class="pips" aria-hidden="true">' + pips + "</span>" : "") + left + " of " + item.qty + " still needed";
     } else avail = "Still needed";
 
     return '<article class="card' + (item.priority === "most" ? " most" : "") + (done ? " done" : "") + '" style="animation-delay:' + Math.min(idx * 40, 400) + 'ms">' +
@@ -310,7 +314,7 @@
   function confetti() {
     if (window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches) return;
     var box = $("confetti");
-    var kinds = [["i-heart", "0 0 64 60"], ["i-star", "0 0 64 64"], ["i-balloon", "0 0 48 84"], ["i-heart", "0 0 64 60"]];
+    var kinds = [["i-heart", "0 0 64 60"], ["i-star", "0 0 64 64"], ["i-balloon", "0 0 48 84"], ["i-pacifier", "0 0 64 64"], ["i-sparkle", "0 0 64 64"], ["i-bootie", "0 0 40 46"], ["i-heart", "0 0 64 60"], ["i-onesie", "0 0 64 64"]];
     var colors = ["#a8744a", "#d2a77c", "#6f4a33", "#c4764f", "#b07a4b", "#8a5a3b"];
     for (var i = 0; i < 34; i++) {
       var k = kinds[i % kinds.length], el = document.createElement("i");
