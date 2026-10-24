@@ -45,7 +45,7 @@
   --animate-rise: rise 1.6s ease-out forwards;
 }
 
-/* Brown + teal palette */
+/* Cream + brown palette (the --teal names are kept; they now hold a warm caramel) */
 :root {
   --background: #fbf4ea;
   --foreground: #3f2a1e;
@@ -53,22 +53,22 @@
   --card-foreground: #3f2a1e;
   --popover: #fffaf3;
   --popover-foreground: #3f2a1e;
-  --primary: #2b6f6a;
-  --primary-foreground: #ffffff;
+  --primary: #5b3a27;
+  --primary-foreground: #fff6e9;
   --secondary: #f3e7d6;
   --secondary-foreground: #6f4a33;
   --muted: #f3e7d6;
   --muted-foreground: #7d6354;
-  --accent: #e3f1ee;
-  --accent-foreground: #1f5551;
+  --accent: #f1e3cf;
+  --accent-foreground: #4b3223;
   --destructive: #b3482f;
   --border: #ecdcc6;
   --input: #e3cfb2;
-  --ring: #3f9a93;
+  --ring: #b07a4b;
   --radius: 1rem;
-  --brown: #6f4a33;
-  --teal: #3f9a93;
-  --teal-soft: #d9eeea;
+  --brown: #8a5a3b;
+  --teal: #b07a4b;
+  --teal-soft: #ecdcc6;
 }
 
 @keyframes float {
@@ -96,7 +96,7 @@
   body {
     @apply bg-background text-foreground antialiased;
     background-image:
-      radial-gradient(1100px 520px at 90% -8%, #eaf5f2 0%, transparent 62%),
+      radial-gradient(1100px 520px at 90% -8%, #f1dfc6 0%, transparent 62%),
       radial-gradient(900px 500px at -10% 28%, #f6e9d6 0%, transparent 60%);
     background-attachment: fixed;
   }

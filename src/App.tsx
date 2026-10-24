@@ -69,7 +69,7 @@ export function App() {
 
         <section id="list" className="mx-auto max-w-6xl px-4 pt-10">
           <div className="mx-auto max-w-4xl text-center">
-            <h2 className="text-4xl font-bold text-brown [text-shadow:2px_2px_0_rgb(159_208_202/.55)] md:text-5xl">
+            <h2 className="text-4xl font-bold text-brown [text-shadow:2px_2px_0_rgb(210_167_124/.55)] md:text-5xl">
               The wish list
             </h2>
             <ul className="mt-6 grid gap-3 text-left md:grid-cols-3">

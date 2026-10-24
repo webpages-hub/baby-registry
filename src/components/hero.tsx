@@ -22,7 +22,7 @@ export function Hero({ taken, total }: Props) {
       <HugeiconsIcon icon={Baby01Icon} size={30} strokeWidth={1.4} aria-hidden className="absolute bottom-2 left-[3%] hidden animate-float text-brown/40 [animation-delay:-4s] md:block" />
 
       <div className="flex flex-col items-center text-center md:items-start md:text-left">
-        <h1 className="text-[clamp(2rem,6.4vw,3.25rem)] leading-[1.1] font-extrabold tracking-tight [text-shadow:2px_2px_0_rgb(159_208_202/.55)]">
+        <h1 className="text-[clamp(2rem,6.4vw,3.25rem)] leading-[1.1] font-extrabold tracking-tight [text-shadow:2px_2px_0_rgb(210_167_124/.55)]">
           <span className="block text-primary">A Tiny Heartbeat.</span>
           <span className="block text-brown">A Growing Family.</span>
           <span className="block text-primary">A Whole Lot of Love.</span>
