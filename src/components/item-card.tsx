@@ -100,17 +100,19 @@ export function ItemCard({ item, left, index, onReserve }: Props) {
           )}
         </div>
         {item.qty > 1 && <Progress value={(taken / item.qty) * 100} aria-label="Reserved so far" className="h-1.5" />}
-        <p className="text-sm text-muted-foreground">
-          See it on{" "}
-          <a
-            href={`https://www.instagram.com/${encodeURIComponent(item.vendor)}/`}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="font-semibold text-primary underline decoration-2 underline-offset-4 hover:text-brown"
-          >
-            @{item.vendor}
-          </a>
-        </p>
+        {item.vendor && (
+          <p className="text-sm text-muted-foreground">
+            See it on{" "}
+            <a
+              href={`https://www.instagram.com/${encodeURIComponent(item.vendor)}/`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="font-semibold text-primary underline decoration-2 underline-offset-4 hover:text-brown"
+            >
+              @{item.vendor}
+            </a>
+          </p>
+        )}
       </CardContent>
 
       <CardFooter className="pt-4 pb-5">

@@ -22,7 +22,7 @@ export type Item = {
   desc: string
   category: Category
   price: number
-  vendor: string
+  vendor?: string
   qty: number
   priority?: "most"
   image?: string
@@ -164,6 +164,15 @@ export const ITEMS: Item[] = [
     "vendor": "topnotch_babyshop2",
     "qty": 1,
     "image": "/images/night-light.webp"
+  },
+  {
+    "id": "baby-swing",
+    "image": "/images/baby-swing.webp",
+    "name": "Baby swing",
+    "desc": "A gentle electric swing that rocks baby to sleep.",
+    "category": "Nursery",
+    "price": 120000,
+    "qty": 1
   },
   {
     "id": "stroller",
