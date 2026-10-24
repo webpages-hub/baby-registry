@@ -64,13 +64,13 @@ export function ReserveDialog({ item, open, session, left, onClose, onReserve }:
   if (desktop) {
     return (
       <Dialog open={open} onOpenChange={change}>
-        <DialogContent className="max-w-md gap-5 rounded-3xl p-7">{body}</DialogContent>
+        <DialogContent className="max-w-md gap-5 rounded-3xl px-7 pt-7 pb-10">{body}</DialogContent>
       </Dialog>
     )
   }
   return (
     <Drawer open={open} onOpenChange={change}>
-      <DrawerContent className="px-5 pb-[max(1.25rem,env(safe-area-inset-bottom))]">{body}</DrawerContent>
+      <DrawerContent className="px-5 pb-[max(3.5rem,calc(env(safe-area-inset-bottom)+2rem))]">{body}</DrawerContent>
     </Drawer>
   )
 }

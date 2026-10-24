@@ -119,7 +119,7 @@ export function App() {
         </section>
       </main>
 
-      <footer className="px-4 pt-10 pb-12 text-center text-sm text-muted-foreground">
+      <footer className="px-4 pt-10 pb-28 text-center text-sm text-muted-foreground">
         <div className="mb-3 flex justify-center gap-4 text-teal/70" aria-hidden>
           <HugeiconsIcon icon={Baby01Icon} size={22} strokeWidth={1.5} />
           <HugeiconsIcon icon={HeartIcon} size={22} strokeWidth={1.5} />
