@@ -1,4 +1,4 @@
-import { lazy, Suspense, useMemo, useState } from "react"
+import { lazy, Suspense, useEffect, useMemo, useRef, useState } from "react"
 import { HugeiconsIcon } from "@hugeicons/react"
 import {
   BabyBottleIcon,
@@ -42,6 +42,20 @@ export function App() {
     setSession((n) => n + 1)
     setOpen(true)
   }
+
+  // When the category changes, bring the top of that category's items into view (just under the sticky filter bar).
+  const firstRun = useRef(true)
+  useEffect(() => {
+    if (firstRun.current) {
+      firstRun.current = false
+      return
+    }
+    const bar = document.getElementById("filter-bar")
+    const top = document.getElementById("items-top")
+    if (!top) return
+    const y = top.getBoundingClientRect().top + window.scrollY - (bar?.offsetHeight ?? 0) - 4
+    window.scrollTo({ top: Math.max(0, y), behavior: "smooth" })
+  }, [cat])
 
   const list = useMemo(() => {
     const order = new Map(ITEMS.map((i, idx) => [i.id, idx]))
@@ -89,7 +103,7 @@ export function App() {
 
           <Filters cat={cat} onCat={setCat} sort={sort} onSort={setSort} />
 
-          <p className="mt-3 mb-4 text-sm text-muted-foreground" aria-live="polite">
+          <p id="items-top" className="mt-3 mb-4 text-sm text-muted-foreground" aria-live="polite">
             {list.length} {list.length === 1 ? "gift" : "gifts"}
           </p>
 
