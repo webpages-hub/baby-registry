@@ -528,3 +528,10 @@ h1 #heroName { color: var(--teal-dark); }
 /* Hero content sits 100px lower */
 .hero { padding-top: 132px; }
 @media (min-width: 821px) { .hero { padding-top: 148px; } }
+
+/* Icons sit directly on the page: no tinted backgrounds or borders */
+.step-ic, .p-ic, .dlg-icon { background: none; border: 0; }
+.step-ic svg, .p-ic svg { width: 36px; height: 36px; }
+.step-ic, .p-ic { width: 40px; height: 40px; }
+.dlg-icon { width: 64px; height: 64px; }
+.dlg-icon svg { width: 52px; height: 52px; }
