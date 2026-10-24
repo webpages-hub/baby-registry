@@ -30,7 +30,7 @@ const STEPS = [
 
 export function App() {
   const { remaining, reserve, total, taken } = useReservations(ITEMS)
-  const [cat, setCat] = useState("all")
+  const [cat, setCat] = useState("most")
   const [sort, setSort] = useState<Sort>("low")
   const [selected, setSelected] = useState<Item | null>(null)
   const [open, setOpen] = useState(false)
