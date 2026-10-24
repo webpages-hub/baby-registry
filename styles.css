@@ -535,3 +535,6 @@ h1 #heroName { color: var(--teal-dark); }
 .step-ic, .p-ic { width: 40px; height: 40px; }
 .dlg-icon { width: 64px; height: 64px; }
 .dlg-icon svg { width: 52px; height: 52px; }
+
+/* Mobile: hero starts 50px from the top */
+@media (max-width: 820px) { .hero { padding-top: 50px; } }
