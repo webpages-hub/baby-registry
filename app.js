@@ -110,6 +110,11 @@
   }
 
   /* ---------- rendering ---------- */
+  function mediaHTML(item) {
+    if (item.image) return '<img src="' + esc(item.image) + '" alt="' + esc(item.name) + '" loading="lazy" data-art="' + esc(item.id) + '">';
+    return window.REGISTRY_ART ? window.REGISTRY_ART(item.id) : "";
+  }
+
   function cardHTML(item, idx) {
     var left = remaining(item), done = left <= 0;
     var ic = CAT_ICON[item.category] || "i-teddy";
@@ -124,7 +129,8 @@
 
     return '<article class="card' + (item.priority === "most" ? " most" : "") + (done ? " done" : "") + '" style="animation-delay:' + Math.min(idx * 40, 400) + 'ms">' +
       (done ? '<div class="ribbon">Reserved</div>' : "") +
-      '<div class="card-top"><div class="bubble">' + icon(ic, vb) + '</div><span class="cat">' + esc(item.category) + "</span>" +
+      '<div class="media">' + mediaHTML(item) + '</div>' +
+      '<div class="card-top"><span class="cat">' + esc(item.category) + "</span>" +
       (item.priority === "most" && !done ? '<span class="badge">' + icon("i-heart", "0 0 64 60") + "Most wanted</span>" : "") + "</div>" +
       "<h3>" + esc(item.name) + "</h3>" +
       '<p class="desc">' + esc(item.desc) + "</p>" +
@@ -330,6 +336,11 @@
     var item = ITEMS.filter(function (i) { return i.id === b.getAttribute("data-reserve"); })[0];
     if (item && remaining(item) > 0) openDialog(item);
   });
+  // If a real photo is missing or fails to load, fall back to the drawn illustration.
+  $("grid").addEventListener("error", function (e) {
+    var id = e.target.getAttribute && e.target.getAttribute("data-art");
+    if (id) e.target.outerHTML = window.REGISTRY_ART(id);
+  }, true);
   $("qtyMinus").addEventListener("click", function () { if (qty > 1) { qty--; updateQty(); } });
   $("qtyPlus").addEventListener("click", function () { if (current && qty < remaining(current)) { qty++; updateQty(); } });
   $("dlgClose").addEventListener("click", closeDialog);

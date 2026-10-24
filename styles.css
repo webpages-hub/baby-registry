@@ -342,3 +342,33 @@ h1 { font-size: clamp(2.2rem, 7vw, 3.6rem); color: var(--espresso); }
   *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; scroll-behavior: auto !important; }
   .floaters { display: none; }
 }
+
+/* ---------- Item images ---------- */
+.f4 { fill: var(--mocha); }
+.f5 { fill: #fffaf0; stroke: #e3cba9; stroke-width: 2; }
+.bg { fill: var(--paper); }
+.sk2x { fill: none; stroke: var(--mocha); stroke-width: 1.4; stroke-linecap: round; opacity: .45; }
+.sk4 { fill: none; stroke: var(--mocha); stroke-width: 3; stroke-linecap: round; }
+.sk5 { fill: none; stroke: var(--mocha); stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+.sk6 { fill: none; stroke: var(--c3); stroke-width: 22; stroke-linecap: round; }
+.sk7 { fill: none; stroke: var(--c2); stroke-width: 5; stroke-linecap: round; stroke-dasharray: 1 9; }
+.mesh { fill: none; stroke: var(--c3); stroke-width: 1; opacity: .8; }
+.ring { fill: none; stroke: var(--c1); stroke-width: 3; }
+.spin { transform-box: fill-box; transform-origin: center; animation: spin 2.4s linear infinite; }
+@keyframes spin { to { transform: rotate(360deg); } }
+
+.media {
+  position: relative; height: 158px; margin: -18px -18px 4px; overflow: hidden;
+  border-radius: calc(var(--radius) - 2px) calc(var(--radius) - 2px) 0 0;
+  background:
+    radial-gradient(circle at 18% 22%, rgba(255, 255, 255, .55) 0 18px, transparent 19px),
+    radial-gradient(circle at 86% 74%, rgba(255, 255, 255, .45) 0 26px, transparent 27px),
+    linear-gradient(160deg, #f6e8d3, #ecd5b6);
+  display: grid; place-items: center;
+}
+.media svg, .media img { width: 100%; height: 100%; display: block; }
+.media svg { padding: 12px 0 8px; transition: transform .35s cubic-bezier(.2, .8, .2, 1); }
+.media img { object-fit: cover; }
+.card:hover .media svg { transform: scale(1.06) rotate(-1.5deg); }
+.card .media + .card-top { margin-top: 2px; }
+.card.done .media { opacity: .55; filter: grayscale(.5); }
