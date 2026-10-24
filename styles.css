@@ -20,7 +20,8 @@
 
   --radius: 22px;
   --shadow: 0 2px 0 rgba(111, 74, 51, .06), 0 10px 28px -12px rgba(111, 74, 51, .35);
-  --head: "Fredoka", "Nunito", system-ui, sans-serif;
+  --head: "Baloo 2", "Nunito", system-ui, sans-serif;
+  --hand: "Patrick Hand", "Segoe Print", "Comic Sans MS", cursive;
   --body: "Nunito", system-ui, -apple-system, "Segoe UI", sans-serif;
 }
 
@@ -38,7 +39,7 @@ body {
   min-height: 100vh;
   overflow-x: hidden;
 }
-h1, h2, h3 { font-family: var(--head); font-weight: 600; line-height: 1.12; margin: 0; letter-spacing: .1px; }
+h1, h2, h3 { font-family: var(--head); font-weight: 700; line-height: 1.08; margin: 0; letter-spacing: .2px; }
 p { margin: 0; }
 button, input, select { font: inherit; color: inherit; }
 a { color: inherit; }
@@ -114,8 +115,8 @@ main, header, footer, section { position: relative; z-index: 1; }
   font-size: .78rem; color: var(--cocoa); font-weight: 500; margin-bottom: 12px;
 }
 .eyebrow .ic { --c1: #c4764f; width: 16px; height: 15px; animation: beat 1.6s ease-in-out infinite; }
-h1 { font-size: clamp(2.2rem, 7vw, 3.6rem); color: var(--espresso); }
-.lead { font-family: var(--head); font-size: 1.25rem; color: var(--cocoa); margin-top: 10px; }
+h1 { font-size: clamp(2.4rem, 8vw, 4rem); font-weight: 800; color: var(--mocha); text-shadow: 3px 3px 0 rgba(210, 167, 124, .55); }
+.lead { font-family: var(--hand); font-size: 1.7rem; color: var(--cocoa); margin-top: 8px; }
 .blurb { margin: 14px 0 22px; color: var(--muted); max-width: 46ch; font-size: 1.04rem; }
 
 .progress {
@@ -406,3 +407,18 @@ h1 { font-size: clamp(2.2rem, 7vw, 3.6rem); color: var(--espresso); }
 .thanks .t3 { right: 8%; top: 70px; width: 20px; }
 .thanks .t4 { left: 6%; top: 74px; width: 34px; }
 .thanks-teddy, .thanks h3, .thanks p, .thanks .btn { position: relative; z-index: 1; }
+
+/* ---------- Type: chunky rounded headings, handwritten notes ---------- */
+.list-head h2, .note h3, .sheet h3 { color: var(--mocha); text-shadow: 2px 2px 0 rgba(210, 167, 124, .45); }
+.progress-note, .note .sign, .dlg-item, .fine, .result-count { font-family: var(--hand); }
+.progress-note { font-size: 1.1rem; }
+.note .sign { font-size: 1.5rem; }
+.dlg-item { font-size: 1.25rem; font-weight: 400; }
+.thanks p { font-family: var(--hand); font-size: 1.2rem; }
+.desc { font-family: var(--hand); font-size: 1.08rem; line-height: 1.4; }
+.cat, .eyebrow { font-family: var(--head); font-weight: 600; letter-spacing: .16em; }
+.card h3 { font-weight: 700; }
+.price { font-weight: 700; }
+.btn { font-weight: 600; }
+.progress-row strong { font-weight: 700; }
+.list-head p, .blurb { font-weight: 600; }
