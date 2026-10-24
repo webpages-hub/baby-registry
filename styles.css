@@ -488,3 +488,9 @@ h1 #heroName { color: var(--teal-dark); }
 .hero h1 span { display: block; }
 .hero h1 .t1, .hero h1 .t3 { color: var(--teal-dark); }
 .hero h1 .t2 { color: var(--mocha); }
+
+/* Hero picture: cut-out, no frame */
+.hero-img { width: auto; max-width: 100%; height: 340px; aspect-ratio: auto; object-fit: contain; border-radius: 0; box-shadow: none; filter: drop-shadow(0 14px 14px rgba(63, 42, 30, .2)); animation: bob 6s ease-in-out infinite; }
+@media (min-width: 821px) {
+  .hero-img { width: auto; max-width: 100%; height: 460px; justify-self: center; margin: 0 auto; }
+}
