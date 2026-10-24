@@ -6,7 +6,6 @@
   <meta name="theme-color" content="#fbf4ea">
   <title>Baby Registry</title>
   <meta name="description" content="Our baby registry. Reserve a gift so nothing gets doubled up.">
-  <link rel="preload" as="image" href="images/hero-balloon-cutout.webp" type="image/webp" fetchpriority="high">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&family=Nunito:wght@400;600;700&family=Patrick+Hand&display=swap" rel="stylesheet">
@@ -149,7 +148,6 @@
 
 <main id="top">
   <section class="hero">
-    <img class="hero-img" src="images/hero-balloon-cutout.webp" width="241" height="700" alt="A soft fabric balloon on the wall with a plush bunny hanging from its string" fetchpriority="high" decoding="async">
     <div class="hero-text">
       <h1><span class="t1">A Tiny Heartbeat.</span> <span class="t2">A Growing Family.</span> <span class="t3">A Whole Lot of Love.</span></h1>
       <p class="blurb">A little one is on the way, and we’re so grateful for your love.</p>
@@ -157,6 +155,14 @@
 
     </div>
 
+    <div class="progress" role="group" aria-label="Registry progress">
+      <div class="progress-head">
+        <span class="p-ic"><svg viewBox="0 0 64 64" aria-hidden="true"><use href="#i-gift"/></svg></span>
+        <div class="p-title"><span>Gifts reserved</span><strong id="progressCount">0 of 0</strong></div>
+      </div>
+      <div class="bar"><span id="barFill"></span><svg class="bar-teddy" id="barTeddy" viewBox="0 0 64 70" aria-hidden="true"><use href="#i-teddy"/></svg></div>
+      <p class="progress-note" id="progressNote">0% of the list is taken care of.</p>
+    </div>
   </section>
 
   <section class="list" id="list">
@@ -167,15 +173,6 @@
       <li><span class="step-ic"><svg viewBox="0 0 64 64" aria-hidden="true"><use href="#i-bag"/></svg></span><div><b>Buy it anywhere</b><span>The Instagram shops are just suggestions. Get it wherever you like.</span></div></li>
       <li><span class="step-ic"><svg viewBox="0 0 64 64" aria-hidden="true"><use href="#i-tag"/></svg></span><div><b>Prices are estimates</b><span>They may differ from the shop.</span></div></li>
     </ul>
-  </div>
-
-  <div class="progress" role="group" aria-label="Registry progress">
-    <div class="progress-head">
-      <span class="p-ic"><svg viewBox="0 0 64 64" aria-hidden="true"><use href="#i-gift"/></svg></span>
-      <div class="p-title"><span>Gifts reserved</span><strong id="progressCount">0 of 0</strong></div>
-    </div>
-    <div class="bar"><span id="barFill"></span><svg class="bar-teddy" id="barTeddy" viewBox="0 0 64 70" aria-hidden="true"><use href="#i-teddy"/></svg></div>
-    <p class="progress-note" id="progressNote">0% of the list is taken care of.</p>
   </div>
 
     <div class="filters" id="filters">

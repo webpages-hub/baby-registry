@@ -471,7 +471,6 @@ h1 #heroName { color: var(--teal-dark); }
 }
 
 /* ---------- Hero picture ---------- */
-.hero-img { display: block; width: min(300px, 78vw); height: auto; aspect-ratio: 3 / 4; object-fit: cover; margin: 0 auto 18px; border-radius: 28px; box-shadow: 0 18px 36px -18px rgba(63, 42, 30, .5); }
 .brand .ic { width: 34px; height: 36px; }
 
 /* Desktop: text and picture side by side */
@@ -479,8 +478,7 @@ h1 #heroName { color: var(--teal-dark); }
   .hero { max-width: 1080px; display: grid; grid-template-columns: 1.05fr .95fr; gap: 40px; align-items: center; padding: 44px 20px 24px; text-align: left; }
   .hero-text { align-items: flex-start; }
   .hero .blurb { margin-left: 0; margin-right: 0; }
-  .hero-img { order: 2; width: 100%; max-width: 400px; margin: 0 auto; }
-  .progress { max-width: 460px; }
+    .progress { max-width: 460px; }
 }
 
 /* Hero title: three short lines */
@@ -489,11 +487,6 @@ h1 #heroName { color: var(--teal-dark); }
 .hero h1 .t1, .hero h1 .t3 { color: var(--teal-dark); }
 .hero h1 .t2 { color: var(--mocha); }
 
-/* Hero picture: cut-out, no frame */
-.hero-img { width: auto; max-width: 100%; height: 340px; aspect-ratio: auto; object-fit: contain; border-radius: 0; box-shadow: none; filter: drop-shadow(0 14px 14px rgba(63, 42, 30, .2)); animation: bob 6s ease-in-out infinite; }
-@media (min-width: 821px) {
-  .hero-img { width: auto; max-width: 100%; height: 460px; justify-self: center; margin: 0 auto; }
-}
 
 .hero { padding-top: 32px; }
 @media (min-width: 821px) { .hero { padding-top: 48px; } }
@@ -520,4 +513,14 @@ h1 #heroName { color: var(--teal-dark); }
 @media (max-width: 720px) {
   .steps { grid-template-columns: 1fr; gap: 10px; }
   .p-title strong { font-size: 1.35rem; }
+}
+
+/* Hero: title on one side, gifts-reserved slider on the other */
+.hero .progress { width: 100%; max-width: 460px; margin: 26px auto 0; padding: 20px 22px 18px; }
+.hero .p-title strong { font-size: 1.8rem; }
+.hero .progress .bar { height: 18px; margin: 20px 0 12px; }
+.hero .progress .bar-teddy { width: 34px; height: 37px; top: -15px; }
+@media (min-width: 821px) {
+  .hero { align-items: center; }
+  .hero .progress { margin: 0 auto; max-width: 440px; }
 }
