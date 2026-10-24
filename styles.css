@@ -31,7 +31,7 @@
 }
 
 *, *::before, *::after { box-sizing: border-box; }
-html { scroll-behavior: smooth; scroll-padding-top: 70px; -webkit-text-size-adjust: 100%; }
+html { scroll-behavior: smooth; scroll-padding-top: 12px; -webkit-text-size-adjust: 100%; }
 body {
   margin: 0;
   font-family: var(--body);
@@ -143,7 +143,7 @@ h1 { font-size: clamp(2.4rem, 8vw, 4rem); font-weight: 800; color: var(--mocha);
 .list-head p { margin-top: 10px; color: var(--muted); }
 
 .filters {
-  position: sticky; top: 54px; z-index: 20;
+  position: sticky; top: 0; z-index: 20;
   margin: 0 -16px; padding: 12px 16px 10px;
   background: linear-gradient(var(--cream) 82%, rgba(251, 244, 234, 0));
 }
@@ -494,3 +494,6 @@ h1 #heroName { color: var(--teal-dark); }
 @media (min-width: 821px) {
   .hero-img { width: auto; max-width: 100%; height: 460px; justify-self: center; margin: 0 auto; }
 }
+
+.hero { padding-top: 32px; }
+@media (min-width: 821px) { .hero { padding-top: 48px; } }
