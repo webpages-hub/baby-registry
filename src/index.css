@@ -45,7 +45,7 @@
   --animate-rise: rise 1.6s ease-out forwards;
 }
 
-/* Cream + brown palette (the --teal names are kept; they now hold a warm caramel) */
+/* Cream + light brown palette (the --teal names are kept; they now hold a warm caramel) */
 :root {
   --background: #fbf4ea;
   --foreground: #3f2a1e;
@@ -53,22 +53,22 @@
   --card-foreground: #3f2a1e;
   --popover: #fffaf3;
   --popover-foreground: #3f2a1e;
-  --primary: #5b3a27;
+  --primary: #94653f;
   --primary-foreground: #fff6e9;
   --secondary: #f3e7d6;
   --secondary-foreground: #6f4a33;
   --muted: #f3e7d6;
   --muted-foreground: #7d6354;
-  --accent: #f1e3cf;
-  --accent-foreground: #4b3223;
+  --accent: #f6ebdb;
+  --accent-foreground: #5b3a27;
   --destructive: #b3482f;
   --border: #ecdcc6;
   --input: #e3cfb2;
-  --ring: #b07a4b;
+  --ring: #c4956a;
   --radius: 1rem;
-  --brown: #8a5a3b;
-  --teal: #b07a4b;
-  --teal-soft: #ecdcc6;
+  --brown: #ad7e55;
+  --teal: #c4956a;
+  --teal-soft: #f0e2cd;
 }
 
 @keyframes float {
