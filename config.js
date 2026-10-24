@@ -24,6 +24,7 @@ window.REGISTRY_CONFIG = {
   formResponseUrl: "https://docs.google.com/forms/d/e/1FAIpQLSdfvoGWH6ntnxQO-R_yw2qdbyrRwi8069XIdOhz-nyudqGYnw/formResponse",
   nameEntry: "entry.1256149239",
   itemEntry: "entry.741310361",
+  countsUrl: "",         // Apps Script web app URL for instant updates (see apps-script/Code.gs)
   sheetCsvUrl: "https://docs.google.com/spreadsheets/d/e/2PACX-1vSRNCcA8Ro7nzWox6Lh5Osa732ZUidxCaR19djvVP1nzcvxfUvBI_VS1aULYc9QZDg4E0F5YUD5CuIB/pub?output=csv",
-  refreshSeconds: 60
+  refreshSeconds: 30
 };

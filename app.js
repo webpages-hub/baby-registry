@@ -8,7 +8,7 @@
   CATS.forEach(function (c) { CAT_ICON[c.name] = c.icon; });
 
   var formReady = !!(CFG.formResponseUrl && CFG.nameEntry && CFG.itemEntry);
-  var sheetReady = !!CFG.sheetCsvUrl;
+  var sheetReady = !!(CFG.countsUrl || CFG.sheetCsvUrl);
 
   var $ = function (id) { return document.getElementById(id); };
   var state = { cat: "all", availOnly: false, sort: "wanted" };
@@ -184,14 +184,27 @@
     return rows;
   }
 
-  function syncSheet() {
-    if (!sheetReady) return Promise.resolve(false);
-    var url = CFG.sheetCsvUrl + (CFG.sheetCsvUrl.indexOf("?") > -1 ? "&" : "?") + "t=" + Date.now();
-    return fetch(url, { cache: "no-store" })
+  function withBust(url) { return url + (url.indexOf("?") > -1 ? "&" : "?") + "t=" + Date.now(); }
+
+  // Live counts from the Apps Script web app (updates the moment a form response lands).
+  function loadLive() {
+    return fetch(withBust(CFG.countsUrl), { cache: "no-store" })
+      .then(function (r) { if (!r.ok) throw new Error("counts " + r.status); return r.json(); })
+      .then(function (d) {
+        if (!d || typeof d.counts !== "object") throw new Error("unexpected counts reply");
+        var counts = {};
+        Object.keys(d.counts).forEach(function (k) { counts[key(k)] = d.counts[k]; });
+        return counts;
+      });
+  }
+
+  // Fallback: the published CSV (Google can take a few minutes to refresh it).
+  function loadCsv() {
+    return fetch(withBust(CFG.sheetCsvUrl), { cache: "no-store" })
       .then(function (r) { if (!r.ok) throw new Error("sheet " + r.status); return r.text(); })
       .then(function (text) {
         var rows = parseCSV(text);
-        if (!rows.length) return false;
+        if (!rows.length) return {};
         var col = rows[0].findIndex(function (h) { return /item|gift/i.test(h); });
         if (col < 0) col = Math.min(2, rows[0].length - 1);
         var counts = {};
@@ -199,10 +212,22 @@
           var k = key(r[col] || "");
           if (k) counts[k] = (counts[k] || 0) + 1;
         });
-        sheetCounts = counts;
-        return true;
-      })
-      .catch(function (e) { console.warn("Could not read reservations sheet:", e); return false; });
+        return counts;
+      });
+  }
+
+  function syncSheet() {
+    if (!sheetReady) return Promise.resolve(false);
+    var source = CFG.countsUrl
+      ? loadLive().catch(function (e) {
+          console.warn("Live counts unavailable, using the published sheet:", e);
+          if (!CFG.sheetCsvUrl) throw e;
+          return loadCsv();
+        })
+      : loadCsv();
+    return source
+      .then(function (counts) { sheetCounts = counts; return true; })
+      .catch(function (e) { console.warn("Could not read reservations:", e); return false; });
   }
 
   function refresh() { return syncSheet().then(function (ok) { if (ok && $("overlay").hidden) render(); else if (ok) renderProgress(); }); }
