@@ -64,6 +64,7 @@ export const ITEMS: Item[] = [
   },
   {
     "id": "nappy-bags",
+    "image": "/images/nappy-bags.webp",
     "name": "Disposable nappy bags",
     "desc": "Scented bags for tidy changes.",
     "category": "Diapering",
@@ -318,6 +319,7 @@ export const ITEMS: Item[] = [
   },
   {
     "id": "steriliser",
+    "image": "/images/steriliser.webp",
     "name": "Bottle steriliser",
     "desc": "Electric steriliser and warmer.",
     "category": "Feeding",
