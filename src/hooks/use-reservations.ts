@@ -4,9 +4,12 @@ import { config } from "@/config"
 import type { Item } from "@/data/items"
 
 type Counts = Record<string, number>
-type Local = Record<string, { base: number; n: number }>
+type Local = Record<string, { base: number; n: number; at?: number }>
 
 const LOCAL_KEY = "registry_local"
+// A reservation made on this device is counted straight away, but only until the shared sheet has had time
+// to publish it. After that the sheet is the single source of truth (so cleared rows stay cleared).
+const LOCAL_TTL_MS = 10 * 60 * 1000
 export const NAME_KEY = "registry_name"
 
 export class TakenError extends Error {
@@ -22,9 +25,29 @@ const withBust = (url: string) => url + (url.includes("?") ? "&" : "?") + "t=" +
 export const formConnected = !!(config.formResponseUrl && config.nameEntry && config.itemEntry)
 const sheetConnected = !!(config.countsUrl || config.sheetCsvUrl)
 
+function prune(local: Local): Local {
+  const now = Date.now()
+  const kept: Local = {}
+  for (const [id, l] of Object.entries(local)) {
+    if (l.at && now - l.at < LOCAL_TTL_MS) kept[id] = l
+  }
+  return Object.keys(kept).length === Object.keys(local).length ? local : kept
+}
+
+function save(local: Local) {
+  try {
+    localStorage.setItem(LOCAL_KEY, JSON.stringify(local))
+  } catch {
+    /* private mode: ignore */
+  }
+}
+
 function readLocal(): Local {
   try {
-    return JSON.parse(localStorage.getItem(LOCAL_KEY) || "{}") || {}
+    const stored = JSON.parse(localStorage.getItem(LOCAL_KEY) || "{}") || {}
+    const kept = prune(stored)
+    if (kept !== stored) save(kept)
+    return kept
   } catch {
     return {}
   }
@@ -130,7 +153,13 @@ export function useReservations(items: Item[]) {
     let alive = true
     const poll = () =>
       void fetchCounts().then((counts) => {
-        if (alive && counts) setSheet(counts)
+        if (!alive) return
+        if (counts) setSheet(counts)
+        setLocal((prev) => {
+          const kept = prune(prev)
+          if (kept !== prev) save(kept)
+          return kept
+        })
       })
     poll()
     const id = setInterval(poll, Math.max(15, config.refreshSeconds || 30) * 1000)
@@ -158,10 +187,10 @@ export function useReservations(items: Item[]) {
       if (left < qty) throw new TakenError(left)
       await Promise.all(Array.from({ length: qty }, () => postToForm(item, name)))
       // Count it right away; the shared sheet may take a moment to catch up.
-      const next = { ...local, [item.id]: { base: reservedOf(item, fresh), n: qty } }
+      const next = { ...local, [item.id]: { base: reservedOf(item, fresh), n: qty, at: Date.now() } }
       setLocal(next)
+      save(next)
       try {
-        localStorage.setItem(LOCAL_KEY, JSON.stringify(next))
         localStorage.setItem(NAME_KEY, name)
       } catch {
         /* private mode: ignore */
