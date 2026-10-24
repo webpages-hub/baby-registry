@@ -1,5 +1,5 @@
 import { HugeiconsIcon } from "@hugeicons/react"
-import { GridViewIcon, HeartIcon } from "@hugeicons/core-free-icons"
+import { FilterHorizontalIcon, GridViewIcon, HeartIcon } from "@hugeicons/core-free-icons"
 
 import { Badge } from "@/components/ui/badge"
 import {
@@ -32,6 +32,7 @@ export function Filters({ cat, onCat, sort, onSort }: Props) {
 
   return (
     <div className="sticky top-0 z-30 -mx-4 bg-background/90 px-4 pt-3 pb-2 backdrop-blur-md md:rounded-b-3xl">
+      <HugeiconsIcon icon={FilterHorizontalIcon} size={22} strokeWidth={2} aria-hidden className="mb-2 text-brown" />
       <div className="-mx-4 overflow-x-auto px-4 pb-2 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
         <ToggleGroup
           type="single"
