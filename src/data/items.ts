@@ -172,6 +172,17 @@ export const ITEMS: Item[] = [
     "desc": "A gentle electric swing that rocks baby to sleep.",
     "category": "Nursery",
     "price": 120000,
+    "vendor": "jennysbabycrib_ng",
+    "qty": 1
+  },
+  {
+    "id": "baby-closet",
+    "image": "/images/baby-closet.webp",
+    "name": "Baby closet",
+    "desc": "A cosy wardrobe with plenty of room for baby's clothes.",
+    "category": "Nursery",
+    "price": 150000,
+    "vendor": "jennysbabycrib_ng",
     "qty": 1
   },
   {
