@@ -258,6 +258,7 @@ export const ITEMS: Item[] = [
   },
   {
     "id": "nasal-aspirator",
+    "image": "/images/nasal-aspirator.webp",
     "name": "Nasal aspirator",
     "desc": "Helps with stuffy noses.",
     "category": "Bath & Care",
@@ -326,6 +327,7 @@ export const ITEMS: Item[] = [
   },
   {
     "id": "bottle-brush",
+    "image": "/images/bottle-brush.webp",
     "name": "Bottle brush & drying rack",
     "desc": "Fits bottles and pump parts.",
     "category": "Feeding",
@@ -335,6 +337,7 @@ export const ITEMS: Item[] = [
   },
   {
     "id": "nursing-pillow",
+    "image": "/images/nursing-pillow.webp",
     "name": "Nursing pillow",
     "desc": "Supportive pillow with a washable cover.",
     "category": "Feeding",
@@ -344,6 +347,7 @@ export const ITEMS: Item[] = [
   },
   {
     "id": "breast-pump",
+    "image": "/images/breast-pump.webp",
     "name": "Breast pump",
     "desc": "A quiet electric pump.",
     "category": "Feeding",

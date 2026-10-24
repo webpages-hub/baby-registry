@@ -2,7 +2,6 @@ import { HugeiconsIcon } from "@hugeicons/react"
 import {
   Baby01Icon,
   BalloonsIcon,
-  GiftIcon,
   HeartIcon,
 } from "@hugeicons/core-free-icons"
 
@@ -41,7 +40,6 @@ export function Hero({ taken, total }: Props) {
       <Card className="mx-auto w-full max-w-md gap-0 border-primary/15 py-0 shadow-lg shadow-primary/10 md:max-w-[440px]">
         <CardContent className="grid gap-4 p-6">
           <div className="flex items-center gap-3">
-            <HugeiconsIcon icon={GiftIcon} size={38} strokeWidth={1.4} className="shrink-0 text-brown" />
             <div className="flex flex-1 items-baseline justify-between gap-3">
               <span className="font-semibold text-primary">Gifts reserved</span>
               <span className="font-display text-3xl leading-none font-bold text-primary" aria-live="polite">

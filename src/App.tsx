@@ -14,6 +14,7 @@ import { Hero } from "@/components/hero"
 import { ItemCard } from "@/components/item-card"
 import { Card } from "@/components/ui/card"
 import { config } from "@/config"
+import { CREDITS } from "@/data/credits"
 import { ITEMS, type Item } from "@/data/items"
 import { formConnected, useReservations } from "@/hooks/use-reservations"
 
@@ -31,7 +32,6 @@ const STEPS = [
 export function App() {
   const { remaining, reserve, total, taken } = useReservations(ITEMS)
   const [cat, setCat] = useState("all")
-  const [availOnly, setAvailOnly] = useState(false)
   const [sort, setSort] = useState<Sort>("wanted")
   const [selected, setSelected] = useState<Item | null>(null)
   const [open, setOpen] = useState(false)
@@ -49,7 +49,6 @@ export function App() {
     return ITEMS.filter((i) => {
       if (cat === "most" && i.priority !== "most") return false
       if (cat !== "all" && cat !== "most" && i.category !== cat) return false
-      if (availOnly && remaining(i) <= 0) return false
       return true
     }).sort((a, b) => {
       const ra = remaining(a) <= 0 ? 1 : 0
@@ -62,7 +61,7 @@ export function App() {
       if (pa !== pb) return pa - pb // most wanted first
       return (order.get(a.id) ?? 0) - (order.get(b.id) ?? 0)
     })
-  }, [cat, availOnly, sort, remaining])
+  }, [cat, sort, remaining])
 
   return (
     <div className="min-h-svh overflow-x-clip">
@@ -89,7 +88,7 @@ export function App() {
             </ul>
           </div>
 
-          <Filters cat={cat} onCat={setCat} availOnly={availOnly} onAvail={setAvailOnly} sort={sort} onSort={setSort} />
+          <Filters cat={cat} onCat={setCat} sort={sort} onSort={setSort} />
 
           <p className="mt-3 mb-4 text-sm text-muted-foreground" aria-live="polite">
             {list.length} {list.length === 1 ? "gift" : "gifts"}
@@ -132,7 +131,27 @@ export function App() {
           <a href="https://unsplash.com" target="_blank" rel="noopener noreferrer" className="font-semibold text-primary underline underline-offset-4">
             Unsplash
           </a>
-          .
+          ,{" "}
+          <a href="https://www.pexels.com" target="_blank" rel="noopener noreferrer" className="font-semibold text-primary underline underline-offset-4">
+            Pexels
+          </a>{" "}
+          and Wikimedia Commons.
+        </p>
+        <p className="mx-auto mt-1 max-w-2xl text-xs leading-relaxed">
+          {CREDITS.map((c, i) => (
+            <span key={c.item}>
+              {i > 0 && " · "}
+              {c.item}:{" "}
+              <a href={c.url} target="_blank" rel="noopener noreferrer" className="underline underline-offset-2">
+                {c.author}
+              </a>{" "}
+              (
+              <a href={c.licenseUrl} target="_blank" rel="noopener noreferrer" className="underline underline-offset-2">
+                {c.license}
+              </a>
+              )
+            </span>
+          ))}
         </p>
         {!formConnected && (
           <p className="mt-1">Preview mode: the Google Form is not connected yet, so reservations are only saved on this device.</p>

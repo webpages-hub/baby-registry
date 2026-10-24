@@ -2,7 +2,6 @@ import { HugeiconsIcon } from "@hugeicons/react"
 import { GridViewIcon, HeartIcon } from "@hugeicons/core-free-icons"
 
 import { Badge } from "@/components/ui/badge"
-import { Label } from "@/components/ui/label"
 import {
   Select,
   SelectContent,
@@ -10,7 +9,6 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select"
-import { Switch } from "@/components/ui/switch"
 import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group"
 import { CATEGORIES, ITEMS } from "@/data/items"
 import { CATEGORY_ICON } from "@/lib/icons"
@@ -20,8 +18,6 @@ export type Sort = "wanted" | "low" | "high"
 type Props = {
   cat: string
   onCat: (v: string) => void
-  availOnly: boolean
-  onAvail: (v: boolean) => void
   sort: Sort
   onSort: (v: Sort) => void
 }
@@ -30,7 +26,7 @@ const chip =
   "h-10 gap-2 rounded-full border-border bg-card px-4 text-sm font-semibold text-brown shadow-none " +
   "hover:bg-accent data-[state=on]:border-primary data-[state=on]:bg-primary data-[state=on]:text-primary-foreground"
 
-export function Filters({ cat, onCat, availOnly, onAvail, sort, onSort }: Props) {
+export function Filters({ cat, onCat, sort, onSort }: Props) {
   const most = ITEMS.filter((i) => i.priority === "most").length
   const count = (c: string) => ITEMS.filter((i) => i.category === c).length
 
@@ -66,13 +62,7 @@ export function Filters({ cat, onCat, availOnly, onAvail, sort, onSort }: Props)
         </ToggleGroup>
       </div>
 
-      <div className="flex items-center justify-between gap-3 pt-1">
-        <div className="flex items-center gap-2.5">
-          <Switch id="avail" checked={availOnly} onCheckedChange={onAvail} />
-          <Label htmlFor="avail" className="cursor-pointer text-sm font-semibold whitespace-nowrap text-brown">
-            Still needed only
-          </Label>
-        </div>
+      <div className="flex items-center justify-end gap-3 pt-1">
         <Select value={sort} onValueChange={(v) => onSort(v as Sort)}>
           <SelectTrigger className="h-10 w-[10.5rem] bg-card text-sm font-semibold text-brown sm:w-[11.5rem]" aria-label="Sort by">
             <SelectValue />
