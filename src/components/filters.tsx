@@ -68,9 +68,9 @@ export function Filters({ cat, onCat, sort, onSort }: Props) {
             <SelectValue />
           </SelectTrigger>
           <SelectContent align="end">
-            <SelectItem value="wanted">Most wanted first</SelectItem>
             <SelectItem value="low">Price: low to high</SelectItem>
             <SelectItem value="high">Price: high to low</SelectItem>
+            <SelectItem value="wanted">Most wanted first</SelectItem>
           </SelectContent>
         </Select>
       </div>
