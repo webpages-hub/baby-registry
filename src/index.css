@@ -1,0 +1,115 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+@import "@fontsource-variable/figtree";
+@import "@fontsource/baloo-2/600.css";
+@import "@fontsource/baloo-2/700.css";
+@import "@fontsource/baloo-2/800.css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --font-heading: var(--font-sans);
+  --font-sans: "Figtree Variable", system-ui, sans-serif;
+  --font-display: "Baloo 2", "Figtree Variable", system-ui, sans-serif;
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+  --color-foreground: var(--foreground);
+  --color-background: var(--background);
+  --color-brown: var(--brown);
+  --color-teal: var(--teal);
+  --color-teal-soft: var(--teal-soft);
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) * 1.4);
+  --radius-2xl: calc(var(--radius) * 1.8);
+  --radius-3xl: calc(var(--radius) * 2.2);
+  --radius-4xl: calc(var(--radius) * 2.6);
+  --animate-float: float 6s ease-in-out infinite;
+  --animate-pop: pop 0.5s ease-out backwards;
+  --animate-rise: rise 1.6s ease-out forwards;
+}
+
+/* Brown + teal palette */
+:root {
+  --background: #fbf4ea;
+  --foreground: #3f2a1e;
+  --card: #fffaf3;
+  --card-foreground: #3f2a1e;
+  --popover: #fffaf3;
+  --popover-foreground: #3f2a1e;
+  --primary: #2b6f6a;
+  --primary-foreground: #ffffff;
+  --secondary: #f3e7d6;
+  --secondary-foreground: #6f4a33;
+  --muted: #f3e7d6;
+  --muted-foreground: #7d6354;
+  --accent: #e3f1ee;
+  --accent-foreground: #1f5551;
+  --destructive: #b3482f;
+  --border: #ecdcc6;
+  --input: #e3cfb2;
+  --ring: #3f9a93;
+  --radius: 1rem;
+  --brown: #6f4a33;
+  --teal: #3f9a93;
+  --teal-soft: #d9eeea;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0) rotate(-2deg); }
+  50% { transform: translateY(-6px) rotate(2deg); }
+}
+@keyframes pop {
+  from { opacity: 0; transform: translateY(10px) scale(0.98); }
+  to { opacity: 1; transform: none; }
+}
+@keyframes rise {
+  0% { opacity: 0; transform: translateY(10px) scale(0.6); }
+  25% { opacity: 1; }
+  100% { opacity: 0; transform: translateY(-70px) scale(1.1); }
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  html {
+    @apply font-sans scroll-smooth;
+    scroll-padding-top: 12px;
+  }
+  body {
+    @apply bg-background text-foreground antialiased;
+    background-image:
+      radial-gradient(1100px 520px at 90% -8%, #eaf5f2 0%, transparent 62%),
+      radial-gradient(900px 500px at -10% 28%, #f6e9d6 0%, transparent 60%);
+    background-attachment: fixed;
+  }
+  h1, h2, h3 {
+    font-family: var(--font-display);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
